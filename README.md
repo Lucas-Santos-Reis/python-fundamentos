@@ -10,6 +10,6 @@ desenvolvidos durante meu processo de aprendizado em Python.
 - Registrar evolução de código
 
 ## Projetos
-Projeto 1 - Jogo da velha (CLI)
+Projeto 1 - Jogo da velha 
 Projeto 2 - Sistema de cadastro e análise de pessoas
 
