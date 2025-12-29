@@ -17,7 +17,8 @@ fundamentos da linguagem, como:
 
 ## Estrutura do projeto
 - `projeto2.py`: código principal do sistema
-
+- `projeto2.1.py` código aprimorado
+ 
 ## Observações
 Este projeto faz parte do meu processo de aprendizado.
 Versões futuras irão remover o uso de variáveis globais
