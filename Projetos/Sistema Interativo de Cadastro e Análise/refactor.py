@@ -1,12 +1,23 @@
 cadastros = []  # Lista para armazenar os cadastros de pessoas
+def validar_idade(idade):
+    try:
+        idade = int(idade)
+        if 0 <= idade <= 120:
+           return idade
+        else:
+           print('Idade inválida. Por favor, insira uma idade entre 0 e 120.')
+    except ValueError:
+        print("Idade inválida. Por favor, insira um número inteiro.")
+        return None
+   
 def cadastrar_pessoa(cadastros):
     while True: # Loop infinito para cadastro de pessoas
         nome = input('Digite o nome da pessoa (ou "sair" para encerrar): ')
-
         if nome.lower() == 'sair':
             break
-
-        idade = int(input(f'Digite a idade do(a) {nome}: '))
+        idade = None
+        while idade is None:
+            idade = validar_idade(input(f'Digite a idade do(a) {nome}: '))
 
         profissao = input(f'Digite a profissão do(a) {nome}: ')
 
@@ -23,6 +34,7 @@ def mostrar_cadastros(cadastros):
         print('\nPessoas cadastradas:')
         for pessoa in cadastros:
             print(f"Nome: {pessoa['nome']}, Idade: {pessoa['idade']}, Profissão: {pessoa['profissao']}")
+
 def analisar_cadastros(cadastros):
     if not cadastros:
         print('Nenhuma pessoa cadastrada para análise...')
@@ -38,7 +50,7 @@ def analisar_cadastros(cadastros):
         5: Voltar ao menu principal (cadastro de pessoas).
         Escolha uma opção (1-5): ''')
             if analise == '1':
-                mostrar_cadastros()
+                mostrar_cadastros(cadastros)
             elif analise == '2':
                 soma_idade = 0
                 for pessoa in cadastros:
@@ -77,7 +89,7 @@ def analisar_cadastros(cadastros):
 
 print('Bem-vindo ao Sistema Interativo de Cadastro e Análise!')
 while True:
-    cadastrar_pessoa(cadastros)
+    cadastros = cadastrar_pessoa(cadastros)
     analisar_cadastros(cadastros)
     sair = input('Deseja encerrar o programa? (s/n): ')
     if sair.lower() == 's':

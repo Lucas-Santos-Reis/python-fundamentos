@@ -16,9 +16,14 @@ fundamentos da linguagem, como:
 - Contagem de pessoas maiores de idade
 
 ## Estrutura do projeto
-- `projeto2.py`: código principal do sistema
-- `projeto2.1.py` código aprimorado
- 
+- `projeto2.py`: 
+- Código principal do sistema
+
+- `refactor.py`: 
+- Remove variáveis globais
+- Validação de idade com tratamento de erros
+- Controle de entrada inválida
+
 ## Observações
 Este projeto faz parte do meu processo de aprendizado.
 Versões futuras irão remover o uso de variáveis globais
