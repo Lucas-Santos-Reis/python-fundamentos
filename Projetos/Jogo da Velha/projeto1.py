@@ -21,11 +21,12 @@ def posicao (): #escolha do usuário
   while not ok:
     posicao = input('Escolha a posição que você deseja jogar... ')
     ok = len(posicao) == 1 and posicao >= '1' and posicao <= '9'
-    if not ok:
+    if not ok: #validação da entrada
       print('Você digitou um valor inválido... ')
       continue
-    elif int(posicao) in movim:
+    if int(posicao) in movim:
       print('Essa posição já foi escolhida, tente outra...')
+      ok = False
       continue
     else:
       movim.append(int(posicao))
