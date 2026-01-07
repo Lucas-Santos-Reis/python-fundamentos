@@ -19,8 +19,6 @@ Exportação para Excel ou CSV
 
 Python
 
-Pandas
-
 OpenPyXL
 
 🎯 Aplicações práticas
