@@ -1,6 +1,8 @@
+from time import sleep
 import rule
 print('''Vamos jogar um jogo?
 Caso queira sair, basta digitar "sair" ou "exit" ''')
+sleep(2)
 rule.board[1][1] = 'X'
 rule.bg_format(rule.board)
 while True: #jogo

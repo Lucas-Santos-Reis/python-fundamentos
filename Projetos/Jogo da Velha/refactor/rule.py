@@ -1,3 +1,4 @@
+from time import sleep
 player = 0
 pc = 0
 draw = 0
@@ -12,7 +13,7 @@ def bg_format(board):  # formato do tabuleiro
         print("|       " * 3, "|", sep="")
         print("+-------" * 3, "+", sep="")
 
-def player_move(board):
+def player_move(board): #vez do jogador e verificação de jogada válida
     ok = False
     while not ok:
         move = input('Insira a posição que você deseja jogar: ')
@@ -27,6 +28,7 @@ def player_move(board):
             else:
                 board[row][column] = 'O'
                 ok = True
+                sleep(1)
                 bg_format(board)
         elif move.lower() in ['sair', 'cancela', 'exit']:
             print('Jogo Encerrado. . . ')
@@ -34,7 +36,7 @@ def player_move(board):
         else:
             print('Jogada inválida. . . ')
 
-def pc_move(board):
+def pc_move(board): #vez da máquina
     from random import randint
     ok = False
     while not ok:
@@ -46,10 +48,12 @@ def pc_move(board):
             continue
         else:
             board[row][column] = 'X'
+            print('Computador jogou na posição {}'.format(move + 1))
             ok = True
+            sleep(2)
             bg_format(board)
 
-def check_win(sign):
+def check_win(sign): #verifica se houve vitória ou empate
     global draw
     if board[0] == [sign, sign, sign] or board[1] == [sign, sign, sign] or board[2] == [sign, sign, sign]:  # Linhas
         return True
@@ -66,7 +70,7 @@ def check_win(sign):
         draw += 1
         reset()
 
-def score(sign):
+def score(sign): #marca a pontuação e mostra o placar
     global player, pc
     if sign == 'O':
         print('Você VENCEU!!! Parabéns. . . ')
@@ -81,7 +85,7 @@ def score(sign):
     Partidas Jogadas: {player + pc + draw}''')
     reset()
 
-def reset():
+def reset(): #reseta o tabuleiro
     global board
     for row in range(3):
         for col in range(3):
